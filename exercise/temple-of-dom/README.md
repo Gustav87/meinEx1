@@ -13,4 +13,5 @@ Resultatet presenteras för varje del i den template som finns med rubrik (inom 
 * [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
 
 Se bilden nedan hur det skulle kunna se ut. OBS! Bilden togs med plugins aktiverade så värdena kan skilja sig från vad du får fram.
+
 ![facit bild](client/facit.png)
