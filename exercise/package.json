@@ -1,5 +1,5 @@
 {
-  "name": "@1dv022/excersice",
+  "name": "@1dv022/exercise",
   "version": "1.0.0",
   "homepage": "https://coursepress.lnu.se/kurs/klientbaserad-webbprogrammering/",
   "contributors": [
@@ -23,7 +23,7 @@
   "license": "CC-BY-4.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/1dv022/excersice"
+    "url": "https://github.com/1dv022/exercise"
   },
   "engines": {
     "node": ">=4.0.0"
