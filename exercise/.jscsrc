@@ -68,7 +68,5 @@
   },
   "requirePaddingNewLinesAfterBlocks": true,
   "safeContextKeyword": "_this",
-  "validateLineBreaks": "LF",
-  "validateQuoteMarks": "\"",
-  "validateIndentation": 4
+  "validateLineBreaks": "LF"
 }
