@@ -3,7 +3,7 @@
 	font-size: 1.2em;
 	color:white;
 	width:500px;
-	height:200px;
+	min-height:200px;
 	padding:10px;
 	border:6px solid #9b3b00;
 	border-bottom:12px solid #9b3b00;
