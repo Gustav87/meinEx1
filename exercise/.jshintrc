@@ -27,8 +27,5 @@
     "white": true,
     "unused": true,
     "nonew": true,
-    "bitwise": true,
-    "latedef": true,
-    "nonbsp": true,
-    "quotmark": "double"
+    "bitwise": true
 }
