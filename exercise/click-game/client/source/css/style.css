@@ -24,15 +24,20 @@ body {
 	height: 100px;
 	width: 100px;
 	background: grey;
-}
+} 
+
 .container {
 	display: flex;
 	flex-wrap: wrap;
 	width: 1000px;
 	margin: 15px 0 30px;
+	position: relative;
 }
 button {
-	width: 333.33px;
+	width: 100px;
+	position: absolute;
+	top: 54%;
+	right: -120px;
 }
 .container > div {
 	width: 33%;
@@ -40,16 +45,15 @@ button {
 	height: 150px;
 }
 
-
 .grey {
-    background-color: grey;
+    background: grey;
 }
 .red {
-    background-color: tomato;
+    background: tomato;
 }
 .blue {
-    background-color: deepskyblue;
+    background: deepskyblue;
 }
 .yellow {
-    background-color: gold;
+    background: gold;
 }

@@ -1,26 +1,20 @@
 
-var colorArray = ['blue', 'blue', 'blue', 'red', 'red', 'red', 'yellow', 'yellow', 'yellow'];
-
 var container = document.querySelector('.container');
-var squaresArray = [];
-var squares = container.children;
 var colorBox = document.querySelector('.colorBox');
-var colorToClick = null;
 var timeEl = document.querySelector('#time');
-var intervalId = null;
 var restartGameButton = document.querySelector('button');
-var arrayCopy = [];
-var firstInitiate = true;
 
+var colorArray = ['blue', 'blue', 'blue', 'red', 'red', 'red', 'yellow', 'yellow', 'yellow'];
+var squaresArray = [];
+var arrayCopy = [];
+var squares = container.children;
+var colorToClick = null;
+var intervalId = null;
+
+populateSquaresArray();
 init();
 
 function init() {
-
-	if (firstInitiate) {
-		for (var i = 0; i < squares.length; i += 1) {
-			squaresArray.push(squares[i]);
-		}
-	}
 
 	arrayCopy = colorArray.slice();
 
@@ -35,15 +29,14 @@ function init() {
 	colorToClick = selectColor(arrayCopy)[0];
 	colorBox.className = 'colorBox ' + colorToClick;
 	startTimer();
-	firstInitiate = false;
 }
 
 function returnRandom(highestValue) {
-	return Math.floor(Math.random() * (highestValue + 1));
+	return Math.floor(Math.random() * highestValue);
 }
 
 function selectColor(arr) {
-	var randomNumber = returnRandom(arr.length - 1);
+	var randomNumber = returnRandom(arr.length);
 	return arr.splice(randomNumber, 1);
 }
 
@@ -65,13 +58,27 @@ function handleBoxClicked() {
 }
 
 function startTimer() {
-	var time = 0;
+	var tot100 = 0;
+	var totSec = 0;
+	var totMin = 0;
+	var hundreds = 0;
+	var minutes = 0;
+	var seconds = 0;
 	intervalId = setInterval(incrementAndDisplay, 10);
 
 	function incrementAndDisplay() {
-		time += 1;
-		timeEl.textContent = time;
+		tot100 += 1;
+		totSec = Math.floor(tot100 / 100);
+		totMin = Math.floor(totSec / 60);
+		hundreds = tot100 % 100;
+		seconds = totSec % 60;
+		minutes = totMin % 60;
+		timeEl.textContent = minutes + ':' + pad(seconds) + ':' + pad(hundreds);
 	}
+}
+
+function pad(val) {
+	return val > 9 ? val : '0' + val;
 }
 
 function stopTimer() {
@@ -83,4 +90,10 @@ restartGameButton.addEventListener('click', restartGame);
 function restartGame() {
 	stopTimer();
 	init();
+}
+
+function populateSquaresArray() {
+	for (var i = 0; i < squares.length; i += 1) {
+		squaresArray.push(squares[i]);
+	}
 }
