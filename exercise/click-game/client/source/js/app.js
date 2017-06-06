@@ -1,17 +1,23 @@
 
-var container = document.querySelector('.container');
+var gameBoard = document.querySelector('.gameBoard');
 var colorBox = document.querySelector('.colorBox');
 var timeEl = document.querySelector('#time');
 var restartGameButton = document.querySelector('button');
+var timePenalty = document.querySelector('.timePenalty');
 
 var colorArray = ['blue', 'blue', 'blue', 'red', 'red', 'red', 'yellow', 'yellow', 'yellow'];
 var squaresArray = [];
 var arrayCopy = [];
-var squares = container.children;
+var squares = gameBoard.children;
 var colorToClick = null;
 var intervalId = null;
 
+var tot100 = 0;
+var totSec = 0;
+var totMin = 0;
+
 populateSquaresArray();
+restartGameButton.addEventListener('click', restartGame);
 init();
 
 function init() {
@@ -21,8 +27,9 @@ function init() {
 	squaresArray.forEach(function(square) {
 		var selectedColor = selectColor(arrayCopy);
 		square.className = selectedColor;
-		addClickHandler(square);
 	});
+
+	gameBoard.addEventListener('click', handleBoxClicked);
 
 	arrayCopy = colorArray.slice();
 
@@ -40,27 +47,29 @@ function selectColor(arr) {
 	return arr.splice(randomNumber, 1);
 }
 
-function addClickHandler(el) {
-	el.addEventListener('click', handleBoxClicked);
-}
-
-function handleBoxClicked() {
+function handleBoxClicked(e) {
+	console.log(e.target);
 	if (arrayCopy.length === 0) {
 		stopTimer();
 	}
 
-	if (colorToClick === this.className) {
+	if (colorToClick === e.target.className) {
 		colorToClick = selectColor(arrayCopy)[0];
 		colorBox.className = 'colorBox ' + colorToClick;
-		this.className = 'grey';
-		this.removeEventListener('click', handleBoxClicked);
+		e.target.className = 'grey';
+	} else {
+		tot100 += 500;
+		timePenalty.style.opacity = 1;
+		setTimeout(function() {
+			timePenalty.style.opacity = 0;
+		}, 1000);
 	}
 }
 
 function startTimer() {
-	var tot100 = 0;
-	var totSec = 0;
-	var totMin = 0;
+	tot100 = 0;
+	totSec = 0;
+	totMin = 0;
 	var hundreds = 0;
 	var minutes = 0;
 	var seconds = 0;
@@ -84,8 +93,6 @@ function pad(val) {
 function stopTimer() {
 	clearInterval(intervalId);
 }
-
-restartGameButton.addEventListener('click', restartGame);
 
 function restartGame() {
 	stopTimer();

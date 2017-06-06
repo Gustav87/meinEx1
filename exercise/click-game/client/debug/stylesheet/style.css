@@ -14,7 +14,6 @@ body {
 }
 .messages {
 	display: flex;
-	flex-direction: row;
 	justify-content: space-around;
 	width: 1000px;
 	align-items: flex-end;
@@ -26,23 +25,38 @@ body {
 	background: grey;
 } 
 
-.container {
+.gameBoard {
 	display: flex;
 	flex-wrap: wrap;
 	width: 1000px;
-	margin: 15px 0 30px;
+	margin: 15px;
 	position: relative;
 }
 button {
 	width: 100px;
-	position: absolute;
-	top: 54%;
-	right: -120px;
 }
-.container > div {
+.gameBoard > div {
 	width: 33%;
 	border: 1px solid silver;
 	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.gameBoard 
+	> div:after {
+		content: ':)';
+		font-size: 2em;
+		opacity: 0.5;
+	}
+
+.timePenalty {
+	color: red;
+	font-weight: 700;
+	opacity: 0;
+	transition-property: all;
+	transition-duration: 1s;
 }
 
 .grey {
