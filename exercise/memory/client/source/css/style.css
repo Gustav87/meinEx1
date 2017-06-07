@@ -1,0 +1,10 @@
+body {
+	background: mediumpurple;
+}
+
+.board {
+	display: flex;
+	width: calc(221px * 5);
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
