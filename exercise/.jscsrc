@@ -36,7 +36,6 @@
   "requireSpaceBeforeBinaryOperators": true,
   "requireSpaceAfterBinaryOperators": true,
   "requireCamelCaseOrUpperCaseIdentifiers": true,
-  "requireLineFeedAtFileEnd": true,
   "requireCapitalizedConstructors": true,
   "requireDotNotation": true,
   "requireSpacesInForStatement": true,
@@ -68,7 +67,5 @@
   },
   "requirePaddingNewLinesAfterBlocks": true,
   "safeContextKeyword": "_this",
-  "validateLineBreaks": "LF",
-  "validateQuoteMarks": "\"",
-  "validateIndentation": 4
+  "validateLineBreaks": "LF"
 }
